@@ -3,6 +3,7 @@
 // Creating variables to hold the number of wins
 var wins = 0;
 
+// titanic gladiator jaws 
 
 // Create variables that hold references to the places in the HTML where we want to display things.
 var instructions = document.getElementById("instructions");
@@ -11,20 +12,25 @@ var curWord = document.getElementById("currentWord");
 var guessRem = document.getElementById("guessRemain");
 var alreadyGuess = document.getElementById("alreadyGuessed");
 
-// This function is run whenever the user presses a key.
-document.onkeyup = function (event) {
+//stores and displays user guesses
+var x = 0;
+var guesses = Array();
 
-var userGuess = event.key;    
+result = document.onkeyup = function (event) {
 
-for (i = 0; i<4; i++){
-    if (userGuess==="r"){
-        wins++
-    winsText.textContent = wins
-        
-    }
+ guesses[x] =  event.key;
+ x++;
+ document.getElementById("alreadyGuessed").value = "";
+   var e = "<hr/>";   
+   for (var y=0; y<guesses.length; y++)
+   {
+     e +=guesses[y] + ", ";
+   }
+   document.getElementById("alreadyGuessed").innerHTML = e;
 }
     
-}
+    
+    
 
 
 
