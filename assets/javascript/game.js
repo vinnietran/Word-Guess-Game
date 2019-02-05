@@ -2,6 +2,7 @@
 
 // Creating variables to hold the number of wins
 var wins = 0;
+var guessRemain = 15;
 
 // titanic gladiator jaws 
 
@@ -16,27 +17,26 @@ var alreadyGuess = document.getElementById("alreadyGuessed");
 var x = 0;
 var guesses = Array();
 
+
+
 result = document.onkeyup = function (event) {
 
- guesses[x] =  event.key;
- x++;
- document.getElementById("alreadyGuessed").value = "";
-   var e = "<hr/>";   
-   for (var y=0; y<guesses.length; y++)
-   {
-     e +=guesses[y] + ", ";
-   }
-   document.getElementById("alreadyGuessed").innerHTML = e;
+    guesses[x] = event.key;
+    x++;
+    document.getElementById("alreadyGuessed").value = "";
+    var e = "<hr/>";
+    for (var y = 0; y < guesses.length; y++) {
+        e += guesses[y] + ", ";
+    }
+    document.getElementById("alreadyGuessed").innerHTML = e;
+    --guessRemain;
+    guessRem.textContent = guessRemain;
+
+    if (guessRemain <= 0) {
+        alert("YOU FAIL!!! REFRESH TO TRY AGAIN")
+    }
 }
-    
-    
-    
 
+guessRem.textContent = guessRemain;
 
-
-
-
-
-
-
-    ;
+;
