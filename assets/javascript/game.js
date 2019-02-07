@@ -22,7 +22,8 @@ var wordElement = document.getElementById('currentWord');
 var letterCountElement = document.getElementById('guessRemain');
 var lettersGuessedElement = document.getElementById('alreadyGuessed');
 var winCounter = document.getElementById('wins');
-var winScreen = document.getElementById('maincontent')
+var winScreen = document.getElementById('main-stuff')
+
 
 function startGame() {
     chosenMovie = word[Math.floor(Math.random() * word.length)];
@@ -60,16 +61,17 @@ function updateGuesses(letter) {
 
 function checkWin() {
     if (correctGuesses.indexOf('_') === -1) {
-        alert('You Won!');
         wins++;
         winCounter.textContent = wins;
         var audio = new Audio("assets/01 Celebration (Single Version).m4a")
         audio.play();
+        winScreen.textContent = 'HELL FUCKING YEAH MOFO'
 
 
     } else if (remainingGuesses === 0) {
         var audio = new Audio("assets/01 When We Stand Together.mp3")
         audio.play();
+        
     }
 }
 
