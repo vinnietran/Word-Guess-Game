@@ -65,7 +65,8 @@ function checkWin() {
         winCounter.textContent = wins;
         var audio = new Audio("assets/01 Celebration (Single Version).m4a")
         audio.play();
-        winScreen.textContent = 'HELL FUCKING YEAH MOFO'
+        winScreen.textContent = ' '
+        //show_image('assets/WIN.jpeg', 500, 500,"fireworks")
 
 
     } else if (remainingGuesses === 0) {
@@ -80,6 +81,18 @@ document.onkeyup = function (event) {
     updateGuesses(letterGuessed);
     checkWin();
 };
+//https://www.w3schools.com/js/js_htmldom_css.asp
+
+/*function show_image(src, width, height, alt) {
+    var img = document.createElement("img");
+    img.src = src;
+    img.width = width;
+    img.height = height;
+    img.alt = alt;
+
+    // This next line will just add it to the <body> tag
+    document.getElementById('title').appendChild(img);
+}*/
 
 startGame();
 
