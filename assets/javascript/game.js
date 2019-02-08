@@ -57,6 +57,7 @@ function checkWin() {
         //audio.play();
         wins++;
         winCounter.textContent = wins;
+        loseScreen.textContent = " ";
         document.getElementById("win").style.display = 'block';
         winScreen.textContent = (chosenMovie.toUpperCase() + " is correct! You win!!!!");
         startGame();
