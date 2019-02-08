@@ -6,7 +6,7 @@
     <title>Hangman</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.jpg" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Enriqueta|Parisienne|Prata|Reenie+Beanie|Sarabun"
+    <link href="https://fonts.googleapis.com/css?family=Enriqueta|Parisienne|Prata|Reenie+Beanie|Sarabun|Noto+Sans+TC"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script type="text/javascript" src="assets/javascript/game.js" async></script>
@@ -34,7 +34,14 @@
             </div>
         </div>
     </div>
-
+    <div class="row" id="win" style="display:none">
+        <div class="col-md-12">         
+        </div>
+    </div>
+    <div class="row" id="lose" style="display:none">
+            <div class="col-md-12">         
+            </div>
+        </div>
     <div id="main-stuff" class="container">
         <div class="row">
             <div class="col-md-12">
@@ -58,6 +65,7 @@
                             <!--Placeholder for letters-->
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <p>Guesses Remaining</p>
@@ -70,11 +78,6 @@
                             <p>Letters Already Guessed</p>
                             <p id="alreadyGuessed"></p>
                             <!--Placeholder for guessed letters-->
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button type="button" id="reset" class="btn btn-danger">Reset</button>
-                            </div>
                         </div>
                     </div>
                 </div>

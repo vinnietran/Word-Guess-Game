@@ -43,6 +43,20 @@ h5{
     margin: 20px;
 }
 
-/*
+#win{
+    font-size: 40px;
+    text-align: center;
+    color: gold;
+    font-family: 'Noto Sans TC', sans-serif;
     
-    font-family: 'Reenie Beanie', cursive; */
+}
+
+#lose{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+    font-family: 'Noto Sans TC', sans-serif;
+    
+}
+
+

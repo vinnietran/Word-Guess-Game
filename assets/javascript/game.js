@@ -1,32 +1,20 @@
-
-
-
-
-// titanic gladiator jaws 
-
-// Create variables that hold references to the places in the HTML where we want to display things.
-/*var instructions = document.getElementById("instructions");
-var winsText = document.getElementById("wins");
-var curWord = document.getElementById("currentWord");
-var guessRem = document.getElementById("guessRemain");
-var alreadyGuess = document.getElementById("alreadyGuessed");*/
-
-
-var word = ['titanic', "jaws", "gladiator", "goodfellas", "interstellar", "it", "paul" ];
+//Declaring variable 
+var word = ['titanic', "jaws", "gladiator", "goodfellas", "interstellar", "it", "paul", "babe" ];
 var remainingGuesses;
 var correctGuesses;
 var wrongGuesses;
 var wins = 0;
 
+//Displaying in HTML
 var wordElement = document.getElementById('currentWord');
 var letterCountElement = document.getElementById('guessRemain');
 var lettersGuessedElement = document.getElementById('alreadyGuessed');
 var winCounter = document.getElementById('wins');
-var winScreen = document.getElementById('main-stuff')
-var loseScreen = document.getElementById('main-stuff')
-var reset = document.getElementById("reset")
+var winScreen = document.getElementById('win')
+var loseScreen = document.getElementById('lose')
 
 
+//Function to clear the letters out and start the game
 function startGame() {
     chosenMovie = word[Math.floor(Math.random() * word.length)];
     remainingGuesses = 15;
@@ -40,6 +28,7 @@ function startGame() {
 
     wordElement.innerHTML = correctGuesses.join(' ');
     letterCountElement.innerHTML = remainingGuesses;
+    console.log(chosenMovie.toUpperCase());
 }
 
 function updateGuesses(letter) {
@@ -63,47 +52,33 @@ function updateGuesses(letter) {
 
 function checkWin() {
     if (correctGuesses.indexOf('_') === -1) {
+          //I tried to add audio, but could not figure out how to get it to stop playing once the game ended 
+        //var audio = new Audio("assets/01 Celebration (Single Version).m4a")
+        //audio.play();
         wins++;
         winCounter.textContent = wins;
-        var audio = new Audio("assets/01 Celebration (Single Version).m4a")
-        audio.play();
-        winScreen.textContent = ' ';
-        //show_image('assets/WIN.jpeg', 500, 500,"fireworks")
-
+        document.getElementById("win").style.display = 'block';
+        winScreen.textContent = (chosenMovie.toUpperCase() + " is correct! You win!!!!");
+        startGame();
 
     } else if (remainingGuesses === 0) {
-        var audio = new Audio("assets/01 When We Stand Together.mp3")
-        audio.play();
-        //loseScreen.textContent = ' ';
-        var loss = document.createElement("div");
-        div.innerHTML = "You Lose! Suffer through Nickelback for your penance!"
-        document.body.appendChild(div);
-        
+        //I tried to add audio, but could not figure out how to get it to stop playing once the game ended 
+        //var audio = new Audio("assets/01 When We Stand Together.mp3")
+        //audio.play();
+        document.getElementById("lose").style.display = 'block';
+        winScreen.textContent = " ";
+        loseScreen.textContent = ("The correct answer was " + chosenMovie.toUpperCase() + "  You failed miserably!! You lose!!!!");
+        startGame();       
     }
 }
-
 document.onkeyup = function (event) {
     var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
     updateGuesses(letterGuessed);
     checkWin();
 };
-//https://www.w3schools.com/js/js_htmldom_css.asp
-
-/*function show_image(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
-
-    // This next line will just add it to the <body> tag
-    document.getElementById('title').appendChild(img);
-}*/
-
 
 startGame();
 
-reset.onclick = function() {startGame()};
 
 
 
@@ -115,54 +90,3 @@ reset.onclick = function() {startGame()};
 
 
 
-
-
-
-
-
-/*stores and displays user guesses
-var x = 0;
-var guesses = Array();
-var movie = ["Jaws", "Gladiator", "Titanic"]
-
-window.onload = function() {
-chosenMovie = movie[Math.floor(Math.random() * movie.length)];
-//word = chosenMovie[Math.floor(Math.random() * chosenMovie.length)];
-chosenMovie.replace( "-");
-curWord.textContent = chosenMovie;
-console.log(chosenMovie);
-}
-//stores guessses and counts down number of guesses from 15
-result = document.onkeyup = function (event) {
-
-    guesses[x] = event.key;
-    x++;
-    document.getElementById("alreadyGuessed").value = "";
-    var e = "<hr/>";
-    for (var y = 0; y < guesses.length; y++) {
-        e += guesses[y] + ", ";
-    }
-    document.getElementById("alreadyGuessed").innerHTML = e;
-    --guessRemain;
-    guessRem.textContent = guessRemain;
-
-    if (guessRemain <= 0) {
-        alert("YOU FAIL!!! REFRESH TO TRY AGAIN")
-    }
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-guessRem.textContent = guessRemain;*/
-
-;
