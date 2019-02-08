@@ -12,7 +12,7 @@ var guessRem = document.getElementById("guessRemain");
 var alreadyGuess = document.getElementById("alreadyGuessed");*/
 
 
-var word = ['titanic', "jaws", "gladiator"];
+var word = ['titanic', "jaws", "gladiator", "goodfellas", "interstellar", "it", "paul" ];
 var remainingGuesses;
 var correctGuesses;
 var wrongGuesses;
@@ -23,11 +23,13 @@ var letterCountElement = document.getElementById('guessRemain');
 var lettersGuessedElement = document.getElementById('alreadyGuessed');
 var winCounter = document.getElementById('wins');
 var winScreen = document.getElementById('main-stuff')
+var loseScreen = document.getElementById('main-stuff')
+var reset = document.getElementById("reset")
 
 
 function startGame() {
     chosenMovie = word[Math.floor(Math.random() * word.length)];
-    remainingGuesses = 10;
+    remainingGuesses = 15;
     wrongGuesses = [];
     correctGuesses = [];
 
@@ -65,13 +67,17 @@ function checkWin() {
         winCounter.textContent = wins;
         var audio = new Audio("assets/01 Celebration (Single Version).m4a")
         audio.play();
-        winScreen.textContent = ' '
+        winScreen.textContent = ' ';
         //show_image('assets/WIN.jpeg', 500, 500,"fireworks")
 
 
     } else if (remainingGuesses === 0) {
         var audio = new Audio("assets/01 When We Stand Together.mp3")
         audio.play();
+        //loseScreen.textContent = ' ';
+        var loss = document.createElement("div");
+        div.innerHTML = "You Lose! Suffer through Nickelback for your penance!"
+        document.body.appendChild(div);
         
     }
 }
@@ -94,7 +100,10 @@ document.onkeyup = function (event) {
     document.getElementById('title').appendChild(img);
 }*/
 
+
 startGame();
+
+reset.onclick = function() {startGame()};
 
 
 
