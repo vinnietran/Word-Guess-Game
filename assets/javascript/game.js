@@ -21,6 +21,7 @@ function startGame() {
     remainingGuesses = 15;
     wrongGuesses = [];
     correctGuesses = [];
+    
 
     // push underscores to correctGuesses
     for (var i = 0; i < chosenMovie.length; i++) {
@@ -63,6 +64,8 @@ function checkWin() {
         document.getElementById("win").style.display = 'block';
         winScreen.textContent = (chosenMovie.toUpperCase() + " is correct! You win!!!!");
         startGame();
+        lettersGuessedElement.innerHTML = "";
+        
 
     } else if (remainingGuesses === 0) {
         //I tried to add audio, but could not figure out how to get it to stop playing once the game ended 
@@ -72,6 +75,7 @@ function checkWin() {
         winScreen.textContent = " ";
         loseScreen.textContent = ("The correct answer was " + chosenMovie.toUpperCase() + "  You failed miserably!! You lose!!!!");
         startGame();       
+        lettersGuessedElement.innerHTML = "";
     }
 }
 document.onkeyup = function (event) {
