@@ -5,6 +5,7 @@ var correctGuesses;
 var wrongGuesses;
 var wins = 0;
 
+
 //Displaying in HTML
 var wordElement = document.getElementById('currentWord');
 var letterCountElement = document.getElementById('guessRemain');
@@ -31,6 +32,7 @@ function startGame() {
     console.log(chosenMovie.toUpperCase());
 }
 
+//I was unable to figure out how to not allow a user to guess the same letter twice 
 function updateGuesses(letter) {
     remainingGuesses--;
     letterCountElement.innerHTML = remainingGuesses;
